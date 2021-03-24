@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>SQLi tester</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -8,18 +9,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-    <style></style>
+    <style>
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        margin-bottom: 0.5rem;
+        font-family: ‘Impact’, fantasy;
+        font-weight: 500;
+        line-height: 1.2;
+        color: black;
+    }
+    </style>
 </head>
 <body>
 
 <div class="site-container">
     <span class="header-text">SQLi tester</span>
+    <button class="btn btn-primary" type="submit" onclick="location.href='/2'"
+            name='reload_btn'>Obnoviť databázu
+    </button>
+
     <div class="row p-5">
         <div class="col-sm">
             <div class="container p-3 my-3 border">
                 <form method="post" action="/login/">
+                    <h3 class="text-center">Bez ochrany</h3>
                     {% csrf_token %}
-                    <input type="hidden" name="protection_type" value="manual_escaping">
+                    <input type="hidden" name="form_type" value="manual_escaping">
                     <div class="form-group">
                         <label for="username">Prihlasovacie meno:</label>
                         <input class="form-control" type="text" name="username" placeholder="Username">
@@ -37,7 +51,8 @@
             <div class="container p-3 my-3 border">
                 <form method="post" action="/login/">
                     {% csrf_token %}
-                    <input type="hidden" name="protection_type" value="package-level_escaping">
+                    <h3 class="text-center">Prepared statements</h3>
+                    <input type="hidden" name="form_type" value="package-level_escaping">
                     <div class="form-group">
                         <label for="username">Prihlasovacie meno:</label>
                         <input class="form-control" type="text" name="username" placeholder="Username">

@@ -19,7 +19,7 @@ from pib_SQLi_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('<int:login_status>', views.index, name='index'),
+    path('<int:flag>', views.index, name='index'),
     path('', views.index, name='index'),
     path('login/', views.my_login, name="my_login"),
     path('home/', views.homepage, name="homepage"),
