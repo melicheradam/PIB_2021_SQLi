@@ -23,4 +23,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.my_login, name="my_login"),
     path('home/', views.homepage, name="homepage"),
+    path('products/unprotected/<product_id>', views.products, name="products"),
+    path('products/prepared/<product_id>', views.products_prepared, name="products"),
+    path('products/selector/<product_id>', views.products_selector, name="products"),
+    path('products/orm/<product_id>', views.products_orm, name="products"),
 ]

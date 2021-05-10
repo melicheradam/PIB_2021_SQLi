@@ -22,18 +22,12 @@
 <body>
 
 <div class="site-container">
-    <span class="header-text">SQLi tester</span>
-    <button class="btn btn-primary" type="submit" onclick="location.href='/2'"
-            name='reload_btn'>Obnoviť databázu
-    </button>
-
     <div class="row p-5">
         <div class="col-sm">
             <div class="container p-3 my-3 border">
                 <form method="post" action="/login/">
-                    <h3 class="text-center">Bez ochrany</h3>
+                    <h3 class="text-center">SQLi tester</h3>
                     {% csrf_token %}
-                    <input type="hidden" name="form_type" value="manual_escaping">
                     <div class="form-group">
                         <label for="username">Prihlasovacie meno:</label>
                         <input class="form-control" type="text" name="username" placeholder="Username">
@@ -42,27 +36,25 @@
                         <label for="password">Heslo:</label>
                         <input class="form-control" type="password" name="password" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Log In</button>
-                </form>
-            </div>
-        </div>
-        <!-- dalsi form -->
-        <div class="col-sm">
-            <div class="container p-3 my-3 border">
-                <form method="post" action="/login/">
-                    {% csrf_token %}
-                    <h3 class="text-center">Prepared statements</h3>
-                    <input type="hidden" name="form_type" value="package-level_escaping">
-                    <div class="form-group">
-                        <label for="username">Prihlasovacie meno:</label>
-                        <input class="form-control" type="text" name="username" placeholder="Username">
+                    <div class="form-check">
+                        <label for="val1" class="form-check-label">
+                            <input type="radio" id="val1" class="form-check-inline" name="protection" value="no_protection" checked>No protection
+                        </label>
+                        <label for="val3" class="form-check-label">
+                            <input type="radio" id="val3" class="form-check-inline" name="protection" value="manual">Manual escaping
+                        </label>
+                        <label for="val2" class="form-check-label">
+                            <input type="radio" id="val2" class="form-check-inline" name="protection" value="prepared">Prepared statements
+                        </label>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Log In</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Heslo:</label>
-                        <input class="form-control" type="password" name="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Log In</button>
                 </form>
+                <div class="text-right" style="padding-top:5px">
+                    <button class="btn btn-primary" type="submit" onclick="location.href='/2'" name='reload_btn'>Obnoviť databázu
+                    </button>
+                </div>
             </div>
         </div>
     </div>

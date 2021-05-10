@@ -22,21 +22,21 @@
 <body>
 <div class="site-container">
     <div class="row" style="margin-top: 30px; margin-left: 100px">
-        <div class="col">
+        <center><div class="col">
             <form method="get" action="/home">
-                <h3 class="text-center">Bez ochrany</h3>
+                <h3 class="text-center">Data visualizer</h3>
                 <div class="form-group row">
                     <div class="col">
                         <label for="username">username:</label>
-                        <input class="form-control" type="text" name="username" placeholder="Username">
+                        <input class="form-control" type="text" name="username">
                     </div>
                     <div class="col">
                         <label for="first_name">first_name:</label>
-                        <input class="form-control" type="text" name="first_name" placeholder="first_name">
+                        <input class="form-control" type="text" name="first_name">
                     </div>
                     <div class="col">
                         <label for="last_name">first_name:</label>
-                        <input class="form-control" type="text" name="last_name" placeholder="last_name">
+                        <input class="form-control" type="text" name="last_name">
                     </div>
                     <div class="col">
                         <label for="gender">Gender:</label>
@@ -46,17 +46,44 @@
                             <option value="Female">Female</option>
                         </select>
                     </div>
+                    <div class="col">
+                        <label for="limit">Limit:</label>
+                        <input class="form-control" type="text" name="limit">
+                    </div>
+                    <div class="col">
+                        <label for="order">Order:</label>
+                        <input class="form-control" type="text" name="order">
+                    </div>
+                    <div class="form-check">
+                        <div class="row">
+                            <label for="val1" class="form-check-label">
+                                <input type="radio" id="val1" class="form-check-inline" name="protection" value="no_protection" checked>No protection
+                            </label>
+                        </div>
+                        <div class="row">
+                            <label for="val2" class="form-check-label">
+                                <input type="radio" id="val2" class="form-check-inline" name="protection" value="prepared_all">Prepared statements
+                            </label>
+                        </div>
+                        <div class="row">
+                            <label for="val3" class="form-check-label">
+                                <input type="radio" id="val3" class="form-check-inline" name="protection" value="prepared_some">Prepared statements & whitelisting
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                    </div>
                 </div>
-                <center><button type="submit" class="btn btn-primary">Log In</button></center>
             </form>
-        </div>
-        <div class="col"></div>
+        </div></center>
     </div>
     <div class="row" style="margin-top: 50px; margin-left: 300px">
         <div class="col table-responsive" style="overflow-y:scroll; max-height: 600px;">
             <table class="table table-striped table-bordered table-hover " >
                 <thead style="position:sticky; top: 0px; background: white;">
                 <tr>
+                    <th scope="col">number</th>
                     <th scope="col">username</th>
                     <th scope="col">first_name</th>
                     <th scope="col">last_name</th>
